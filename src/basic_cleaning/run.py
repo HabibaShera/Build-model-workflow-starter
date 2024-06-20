@@ -12,45 +12,45 @@ logger = logging.getLogger()
 
 
 def go(args):
-
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    # particular version of the artifact
-    # artifact_local_path = run.use_artifact(args.input_artifact).file()
+    # Example code: you should replace this with your actual data cleaning logic
+    logger.info(f"Starting data cleaning with parameters: {args}")
 
-    ######################
-    # YOUR CODE HERE     #
-    ######################
+    # Replace this with your actual data cleaning code
+    cleaned_data = {}  # Your actual data cleaning output
+
+    # Log the cleaned data to W&B
+    wandb.log({"cleaned_data": cleaned_data})
+
+    logger.info("Data cleaning completed.")
+    run.complete()
 
 
 if __name__ == "__main__":
-
-    parser = argparse.ArgumentParser(description="his steps cleans the data")
-
+    parser = argparse.ArgumentParser(description="This script performs basic data cleaning and logs results to Weights & Biases.")
 
     parser.add_argument(
-        "--parameter1", 
-        type=float## INSERT TYPE HERE: str, float or int,
-        help="first parameter"## INSERT DESCRIPTION HERE,
+        "--parameter1",
+        type=float,
+        help="First parameter (insert description here)",
         required=True
     )
 
     parser.add_argument(
-        "--parameter2", 
-        type=float## INSERT TYPE HERE: str, float or int,
-        help="second paramter"## INSERT DESCRIPTION HERE,
+        "--parameter2",
+        type=float,
+        help="Second parameter (insert description here)",
         required=True
     )
 
     parser.add_argument(
-        "--parameter3", 
-        type=str## INSERT TYPE HERE: str, float or int,
-        help="third parameter"## INSERT DESCRIPTION HERE,
+        "--parameter3",
+        type=str,
+        help="Third parameter (insert description here)",
         required=True
     )
-
 
     args = parser.parse_args()
 
