@@ -1,0 +1,15 @@
+name: basic_cleaning
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - setuptools
+  - pip
+  - pip:
+      - wandb==0.10.31
+      - mlflow
+      - six
+      - click
+      - importlib
+      - setuptools
